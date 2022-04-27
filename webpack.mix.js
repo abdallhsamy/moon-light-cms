@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const path = require('path');
+require('laravel-vue-i18n/mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ mix.webpackConfig({
 mix.alias({
     ziggy: path.resolve('vendor/tightenco/ziggy/dist'), // or 'vendor/tightenco/ziggy/dist/vue' if you're using the Vue plugin
 });
+
+mix.i18n();

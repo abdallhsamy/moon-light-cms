@@ -1,4 +1,6 @@
 {
+    "home" : "Home",
+    "Starter Page" : "Starter Page",
     "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
     "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
     "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",

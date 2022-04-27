@@ -2,7 +2,7 @@
     <div>
         <h1>inertiajs is {{ about_us }}</h1>
 
-        <Link :href="route('home')">Home</Link>
+        <Link :href="route('home')">{{ $t('Home') }}</Link>
     </div>
 </template>
 
