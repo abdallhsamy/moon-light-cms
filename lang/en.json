@@ -1,6 +1,18 @@
 {
+    "users_header_title" : "Users List",
+    "breadcrumb_dashboard" : "Dashboard",
+    "breadcrumb_user_management" :  "User Management",
+    "users_header_sub_title" : " ",
+    "users_table_name": "Name",
+    "users_table_email": "Email",
+    "users_table_verified": "Verified",
+
+    "boolean_yes": "Yes",
+    "boolean_no": "No",
+
     "home" : "Home",
     "Starter Page" : "Starter Page",
+
     "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
     "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
     "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
