@@ -1,14 +1,13 @@
 {
-    "users_header_title" : "Users List",
-    "breadcrumb_dashboard" : "Dashboard",
-    "breadcrumb_user_management" :  "User Management",
-    "users_header_sub_title" : " ",
-    "users_table_name": "Name",
-    "users_table_email": "Email",
-    "users_table_verified": "Verified",
+    "Users List" : "Users List",
+    "Dashboard" : "Dashboard",
+    "User Management" :  "User Management",
+    "Name": "Name",
+    "Email": "Email",
+    "Verified": "Verified",
 
-    "boolean_yes": "Yes",
-    "boolean_no": "No",
+    "Yes": "Yes",
+    "No": "No",
 
     "home" : "Home",
     "Starter Page" : "Starter Page",
