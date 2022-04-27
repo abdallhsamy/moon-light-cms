@@ -4,13 +4,15 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">{{ $t('Users List') }}</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-left">
                             <li class="breadcrumb-item"><a href="#">{{ $t('Dashboard') }}</a></li>
                             <li class="breadcrumb-item active">{{ $t('User Management') }}</li>
                         </ol>
+                    </div>
+                    <div class="col-sm-6">
+                        <Link :href="route('users.create')" class="float-sm-right btn btn-primary mb-3">
+                            {{ $t('Create User') }}
+                        </Link>
                     </div>
                 </div>
             </div>
