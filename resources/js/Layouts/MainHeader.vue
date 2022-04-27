@@ -7,10 +7,10 @@
             </li>
             <li class="nav-item d-none d-sm-inline-block">
 
-                <Link href="/" class="nav-link">Home</Link>
+                <Link :href="route('home')" class="nav-link">Home</Link>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <Link href="/about-us" class="nav-link">Contact</Link>
+                <Link :href="route('about-us')" class="nav-link">Contact</Link>
             </li>
         </ul>
 

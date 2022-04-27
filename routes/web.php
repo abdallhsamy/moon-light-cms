@@ -17,8 +17,8 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Home', ['test' => 'working']);
-});
+})->name('home');
 
 Route::get('/about-us', function () {
     return Inertia::render('About', ['about_us' => 'working']);
-});
+})->name('about-us');
