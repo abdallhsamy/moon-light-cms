@@ -33,3 +33,7 @@ mix.alias({
 });
 
 mix.i18n();
+
+mix.alias({
+    '@': path.join(__dirname, 'resources/js')
+});
