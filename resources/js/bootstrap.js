@@ -26,3 +26,45 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+try {
+    window.Popper = require('popper.js').default;
+    window.$ = window.jQuery = require('jquery');
+
+    require('bootstrap');
+
+    // AdminLTE code here.
+    require('admin-lte');
+} catch (e) {
+    console.log(e);
+}
+
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+import 'jquery-ui/ui/widgets/datepicker.js';
+import 'admin-lte/plugins/datatables/jquery.dataTables.min.js';
+import 'admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js';
+import 'admin-lte/plugins/datatables-responsive/js/dataTables.responsive.min.js';
+import 'admin-lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js';
+import 'admin-lte/plugins/select2/js/select2.full.min.js';
+
+//Don't forgot to put code also same as below otherwise it will not working
+
+// Datepicket Code
+$('#datepicker').datepicker();
+
+//Datatable
+$("#example1").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+});
+
+//Initialize Select2 Elements
+$('.select2').select2()
+
+//Initialize Select2 Elements
+$('.select2bs4').select2({
+    theme: 'bootstrap4'
+})
