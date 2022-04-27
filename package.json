@@ -25,6 +25,7 @@
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/progress": "^0.2.7",
         "admin-lte": "^3.2.0",
+        "laravel-vue-i18n": "^1.4.3",
         "vue": "^3.2.31"
     }
 }
