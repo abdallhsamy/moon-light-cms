@@ -10,8 +10,22 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->paginate(5);
+        request()->validate([
+            'direction' => ['in:asc,desc'],
+            'field' => ['in:id,name,email']
+        ]);
 
-        return Inertia::render('users/Index', compact('users'));
+        $users = User::query()
+            ->when(request('search'), function ($query) {
+                $query->where('name', 'LIKE', '%'.request('search').'%')
+                    ->OrWhere('email', 'LIKE', '%'.request('search').'%');
+            })->when(request()->has(['field', 'direction']), function ($query) {
+                $query->orderBy(request('field'), request('direction'));
+            })->paginate()
+            ->withQueryString();
+
+        $filters = request()->all(['search', 'field', 'direction']);
+
+        return Inertia::render('users/Index', compact('users', 'filters'));
     }
 }
