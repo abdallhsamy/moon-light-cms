@@ -58,6 +58,7 @@
                                             </svg>
                                         </th>
                                         <th style="width: 40px">{{ $t('Verified') }}</th>
+                                        <th style="min-width: 40px">{{ $t('Actions') }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,6 +72,12 @@
                                                   :class="{ 'bg-success' : user.email_verified_at ,'bg-danger' : !user.email_verified_at }">
                                                 {{  user.email_verified_at ? $t('Yes') : $t('No') }}
                                             </span>
+                                        </td>
+                                        <td>
+
+                                            <Link :href="route('users.edit', user.id)" class="mr-2">
+                                                <i class="nav-icon fas fa-pencil-alt"></i>
+                                            </Link>
                                         </td>
                                     </tr>
                                     </tbody>
