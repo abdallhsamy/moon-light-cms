@@ -4,8 +4,8 @@
             <template v-for="(link, key) in links">
                 <li v-if="link.url === null" :key="key"
                     class="page-item" v-html="link.label" />
-                <li class="page-item">
-                    <inertia-link v-else :key="key" class="page-link" :class="{ 'bg-white': link.active }" :href="link.url" v-html="link.label" />
+                <li v-else class="page-item">
+                    <inertia-link :key="key" class="page-link" :class="{ 'bg-white': link.active }" :href="link.url" v-html="link.label" />
                 </li>
 
             </template>
