@@ -1,4 +1,6 @@
 <template>
+    <Head :title="$t('Users List')" />
+
     <DashboardLayout>
         <div class="content-header">
             <div class="container-fluid">
@@ -101,8 +103,8 @@
 
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
+import { Link, Head } from "@inertiajs/inertia-vue3";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import Pagination from '@/Components/Pagination'
 import { pickBy, throttle } from 'lodash';
@@ -111,6 +113,7 @@ export default {
     name: "Index",
     components: {
         DashboardLayout,
+        Head,
         Link,
         Pagination
     },

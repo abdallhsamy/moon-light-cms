@@ -1,4 +1,6 @@
 <template>
+    <Head :title="$t('Create User')" />
+
     <DashboardLayout>
         <div class="content-header">
             <div class="container-fluid">
@@ -76,13 +78,14 @@
 
 
 <script>
-import { Link, useForm } from "@inertiajs/inertia-vue3";
+import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 export default {
     name: "Index",
     components: {
         DashboardLayout,
+        Head,
         Link,
     },
     props: {

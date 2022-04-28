@@ -8,6 +8,7 @@ import { i18nVue } from 'laravel-vue-i18n'
 InertiaProgress.init();
 
 createInertiaApp({
+    title: title => `${title} - Moon Light CMS`,
     resolve: (name) => require(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
