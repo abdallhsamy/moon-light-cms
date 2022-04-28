@@ -1,5 +1,5 @@
 export let menu
-
+// todo : protect menu items with permissions
 export default menu = [
     {
         "title" : "User Management",
