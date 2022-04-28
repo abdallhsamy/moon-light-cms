@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\StoreUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -27,5 +27,19 @@ class UserController extends Controller
         $filters = request()->all(['search', 'field', 'direction']);
 
         return Inertia::render('users/Index', compact('users', 'filters'));
+    }
+
+    public function create()
+    {
+        return Inertia::render('users/Create');
+    }
+
+    public function store(StoreUserRequest $request)
+    {
+        User::create($request->validated());
+
+        return redirect()
+            ->route('users.index')
+            ->with('message', __('User Created Successfully'));
     }
 }

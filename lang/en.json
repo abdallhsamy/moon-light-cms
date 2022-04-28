@@ -5,6 +5,10 @@
     "Name": "Name",
     "Email": "Email",
     "Verified": "Verified",
+    "Create User" : "Create User",
+    "Password" :  "Password",
+    "Password Confirmation" : "Password Confirmation",
+    "User Created Successfully" : "User Created Successfully",
 
     "Yes": "Yes",
     "No": "No",

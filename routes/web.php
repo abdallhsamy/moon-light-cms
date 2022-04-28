@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -23,4 +24,4 @@ Route::get('/about-us', function () {
     return Inertia::render('About', ['about_us' => 'working']);
 })->name('about-us');
 
-Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+Route::resource('users', UserController::class);
