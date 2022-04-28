@@ -74,10 +74,12 @@
                                             </span>
                                         </td>
                                         <td>
-
                                             <Link :href="route('users.edit', user.id)" class="mr-2">
-                                                <i class="nav-icon fas fa-pencil-alt"></i>
+                                                <i class="nav-icon fas fa-pencil-alt text-warning"></i>
                                             </Link>
+                                            <span @click="destroy(user.id)">
+                                                <i class="nav-icon fas fa-trash-alt text-danger"></i>
+                                            </span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -100,6 +102,7 @@
 
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import Pagination from '@/Components/Pagination'
 import { pickBy, throttle } from 'lodash';
@@ -123,6 +126,16 @@ export default {
                 direction: this.filters.direction,
             },
         };
+    },
+    setup() {
+        const destroy = (id) => {
+            if (confirm('Are You Sure You Want To Delete')) {
+                console.log(id)
+                Inertia.delete(route('users.destroy', id))
+            }
+        }
+
+        return { destroy }
     },
     methods: {
         sort(field) {

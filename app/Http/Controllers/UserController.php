@@ -60,4 +60,13 @@ class UserController extends Controller
             ->route('users.index')
             ->with('message', __('User Updated Successfully'));
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()
+            ->route('users.index')
+            ->with('message', __('User Deleted Successfully'));
+    }
 }
