@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use Inertia\Inertia;
 
@@ -41,5 +43,21 @@ class UserController extends Controller
         return redirect()
             ->route('users.index')
             ->with('message', __('User Created Successfully'));
+    }
+
+    public function edit(User $user)
+    {
+        $user = new UserResource($user);
+
+        return Inertia::render('users/Edit', compact('user'));
+    }
+
+    public function update(UpdateUserRequest $request, User $user)
+    {
+        $user->update($request->validated());
+
+        return redirect()
+            ->route('users.index')
+            ->with('message', __('User Updated Successfully'));
     }
 }
