@@ -3,7 +3,7 @@
 
         <a href="index3.html" class="brand-link">
             <img src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">Moon Light CMS</span>
         </a>
 
         <div class="sidebar">
@@ -13,7 +13,7 @@
                     <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">Abdallah Samy</a>
                 </div>
             </div>
 
@@ -31,29 +31,26 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Starter Pages
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Active Page</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inactive Page</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <tempalte v-if="menu">
+                        <li v-for="item in menu" :key="item.title" class="nav-item" :class="{ 'menu-open' : $page.component.startsWith(item.folder) }">
+                            <a :href="item.link ?? '#'" class="nav-link" :class="{ 'active' : $page.component.startsWith(item.folder) }">
+                                <i :class="item.icon"></i>
+                                <p>
+                                    {{  ' ' + item.title }}
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul v-if="item.sub_list" class="nav nav-treeview">
+                                <li v-for="sub_item in item.sub_list" :key="sub_item.title" class="nav-item">
+                                    <Link :href="route(sub_item.route) ?? ''" class="nav-link" :class="{'active' : $page.component === sub_item.component }">
+                                        <i v-if="sub_item.icon" :class="sub_item.icon"></i>
+                                        <p>{{  sub_item.title }}</p>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </li>
+                    </tempalte>
+
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
@@ -72,8 +69,24 @@
 </template>
 
 <script>
+import {menu} from "../data/sidebar/index"
+import { Link } from "@inertiajs/inertia-vue3"
+
 export default {
-    name: "MainSidebar"
+    name: "MainSidebar",
+    components : {
+        Link
+    },
+    data() {
+        return {
+            menu: menu
+        }
+    },
+    setup() {
+        // menu.forEach((item)=> {
+        //     console.log(item.sub_list)
+        // })
+    }
 }
 </script>
 
