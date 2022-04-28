@@ -12,7 +12,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        sleep(4);
         request()->validate([
             'direction' => ['in:asc,desc'],
             'field' => ['in:id,name,email']
