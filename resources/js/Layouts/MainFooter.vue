@@ -2,10 +2,10 @@
     <footer class="main-footer">
 
         <div class="float-right d-none d-sm-inline">
-            Anything you want
+            Made with ♥ by <a href="https://github.com/abdallhsamy">Abdallah Samy</a>
         </div>
 
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2022 <a href="https://github.com/abdallhsamy/moon-light-cms">Moon Light CMS</a>.</strong> All rights reserved.
     </footer>
 </template>
 
