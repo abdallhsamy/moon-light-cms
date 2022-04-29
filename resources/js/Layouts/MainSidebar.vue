@@ -32,7 +32,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                     <li v-if="menu" v-for="item in menu" :key="item.title" class="nav-item" :class="{ 'menu-open' : $page.component.startsWith(item.folder) }">
-                        <a :href="item.link ?? '#'" class="nav-link" :class="{ 'active' : $page.component.startsWith(item.folder) }">
+                        <a :href="item.link ?? '#'" class="nav-link" :class="{ 'active' : $page.url.includes(item.prefix) }">
                             <i :class="item.icon"></i>
                             <p>
                                 {{  ' ' + item.title }}
