@@ -13,7 +13,7 @@
                     <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Abdallah Samy</a>
+                    <a href="#" class="d-block">{{  $page.props.auth.user.name }}</a>
                 </div>
             </div>
 
