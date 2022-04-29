@@ -5,7 +5,6 @@
         <MainSidebar/>
 
         <div class="content-wrapper">
-<!--            <MainSidebar/>-->
 
             <div v-if="$page.props.flash.message" class="alert alert-primary" role="alert">
                 {{  $page.props.flash.message }}
@@ -15,9 +14,9 @@
 
         </div>
 
-        <ControlSidebar/>
-
         <MainFooter/>
+
+        <ControlSidebar/>
     </div>
 </template>
 
