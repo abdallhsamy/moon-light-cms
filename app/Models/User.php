@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar'
     ];
 
     /**
@@ -47,5 +48,10 @@ class User extends Authenticatable
     protected function password(): Attribute
     {
         return new Attribute(set: fn(string $value) => Hash::make($value));
+    }
+
+    protected function avatar(): Attribute
+    {
+        return new Attribute(get: fn(?string $value) => $value  ?? "https://ui-avatars.com/api/?name=$this->name&background=random&size=128&rounded=true&format=svg");
     }
 }
