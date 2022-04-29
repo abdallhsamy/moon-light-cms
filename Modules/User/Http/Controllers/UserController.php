@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
-use App\Http\Requests\User\StoreUserRequest;
-use App\Http\Requests\User\UpdateUserRequest;
-use App\Http\Resources\User\UserResource;
 use App\Models\User;
+use Illuminate\Routing\Controller;
 use Inertia\Inertia;
+use Modules\User\Http\Requests\StoreUserRequest;
+use Modules\User\Http\Requests\UpdateUserRequest;
+use Modules\User\Transformers\UserResource;
 
 class UserController extends Controller
 {
+
     public function index()
     {
         request()->validate([
@@ -28,12 +30,13 @@ class UserController extends Controller
 
         $filters = request()->all(['search', 'field', 'direction']);
 
-        return Inertia::render('users/Index', compact('users', 'filters'));
+        return Inertia::render('User::Index', compact('users', 'filters'));
+
     }
 
     public function create()
     {
-        return Inertia::render('users/Create');
+        return Inertia::render('User::Create');
     }
 
     public function store(StoreUserRequest $request)
@@ -49,7 +52,7 @@ class UserController extends Controller
     {
         $user = new UserResource($user);
 
-        return Inertia::render('users/Edit', compact('user'));
+        return Inertia::render('User::Edit', compact('user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)

@@ -5,18 +5,18 @@ export default menu = [
         "title" : "User Management",
         "icon" : "fas fa-tachometer-alt",
         "link" : "#",
-        'folder' : "users",
+        'prefix' : "users",
         "sub_list" : [
             {
                 "title" : "Users List",
                 "icon" : "fas fa-user nav-icon",
                 "route" : "users.index",
-                "component" : "users/Index"
+                "component" : "User::Index"
             },{
                 "title" : "Add User",
                 "icon" : "fas fa-user nav-icon",
                 "route" : "users.create",
-                "component" : "users/Create"
+                "component" : "User::Create"
             },
         ]
     }

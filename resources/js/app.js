@@ -21,8 +21,16 @@ InertiaProgress.init({
 })
 
 createInertiaApp({
+    initialPage: JSON.parse(document.getElementById('app').dataset.page),
+    resolve: (name) => {
+        let parts = name.split('::')
+        let type = false
+        if (parts.length > 1) type = parts[0]
+        if(type) return require(`../../Modules/${type}/Resources/assets/js/${parts[1]}`).default
+        return require(`./Pages/${name}`).default
+    },
+    // resolve: (name) => require(`./Pages/${name}`),
     title: title => `${title} - Moon Light CMS`,
-    resolve: (name) => require(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
