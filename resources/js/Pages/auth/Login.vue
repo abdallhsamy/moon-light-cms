@@ -80,6 +80,8 @@
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import AuthLayout from "@/Layouts/AuthLayout";
 
+document.body.className ='hold-transition login-page';
+
 export default {
     name: "Login",
     components: {
