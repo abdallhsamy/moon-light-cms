@@ -81,7 +81,7 @@ import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import AuthLayout from "@/Layouts/AuthLayout";
 
 export default {
-    name: "Index",
+    name: "Login",
     components: {
         AuthLayout,
         Head,
