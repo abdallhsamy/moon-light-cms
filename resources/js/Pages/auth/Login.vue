@@ -10,7 +10,7 @@
                     <Link :href="route('home')" class="h1"><b>{{ $page.props.app_name }}</b></Link>
                 </div>
                 <div class="card-body">
-                    <p class="login-box-msg">{{ $t('sign_in_to_start_your_session') }}</p>
+                    <p class="login-box-msg">{{ $t('sign in to start your session') }}</p>
 
                     <form @submit.prevent="form.post(route('login'))">
                         <div class="input-group mb-3">
