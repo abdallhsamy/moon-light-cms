@@ -40,7 +40,9 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'message' => session('message')
             ],
+            'app_name' => config('app.name'),
             'auth' => [
+                'is_logged_in' => auth()->check(),
                 'user' => [
                     'id' =>  auth()->user()->id ?? null,
                     'name' =>  auth()->user()->name ?? null,

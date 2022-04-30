@@ -27,6 +27,8 @@ import MainFooter from "./MainFooter";
 import MainHeader from "./MainHeader";
 import MainSidebar from "./MainSidebar";
 
+document.body.className = 'hold-transition sidebar-mini';
+
 export default {
     name: "DashboardLayout",
     components: {
