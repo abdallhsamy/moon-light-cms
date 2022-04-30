@@ -32,21 +32,22 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                     <li v-if="menu" v-for="item in menu" :key="item.title" class="nav-item" :class="{ 'menu-open' : $page.component.startsWith(item.folder) }">
-                        <a :href="item.link ?? '#'" class="nav-link" :class="{ 'active' : $page.component.startsWith(item.folder) }">
-                            <i :class="item.icon"></i>
-                            <p>
-                                {{  ' ' + item.title }}
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul v-if="item.sub_list" class="nav nav-treeview">
-                            <li v-for="sub_item in item.sub_list" :key="sub_item.title" class="nav-item">
-                                <Link :href="route(sub_item.route) ?? ''" class="nav-link" :class="{'active' : $page.component === sub_item.component }">
-                                    <i v-if="sub_item.icon" :class="sub_item.icon"></i>
-                                    <p>{{  sub_item.title }}</p>
-                                </Link>
-                            </li>
-                        </ul>
+                            <a :href="item.link ?? '#'" class="nav-link" :class="{ 'active' : $page.component.startsWith(item.folder) }">
+                                <i :class="item.icon"></i>
+                                <p>
+                                    {{  ' ' + item.title }}
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul v-if="item.sub_list" class="nav nav-treeview">
+                                <li v-for="sub_item in item.sub_list" :key="sub_item.title" class="nav-item">
+                                    <Link :href="route(sub_item.route) ?? ''" class="nav-link" :class="{'active' : $page.component === sub_item.component }">
+                                        <i v-if="sub_item.icon" :class="sub_item.icon"></i>
+                                        <p>{{  sub_item.title }}</p>
+                                    </Link>
+                                </li>
+                            </ul>
+
                     </li>
 
                     <li class="nav-item">
@@ -84,7 +85,30 @@ export default {
         // menu.forEach((item)=> {
         //     console.log(item.sub_list)
         // })
-    }
+    },
+    methods: {
+        // validateSinglePermission(permission) {
+        //     // console.log($page.props.auth.can.keys())
+        //     console.log(permission)
+        // },
+        // validatePermission(permissions) {
+        //     if(permissions === '' || permissions == null) {
+        //         return true;
+        //     }
+        //
+        //     if(typeof permissions == 'string') {
+        //         this.validateSinglePermission(permissions)
+        //     }
+        //     if(Array.isArray(permissions)) {
+        //         permissions.forEach(function (item) {
+        //             validateSinglePermission(item)
+        //         })
+        //     }
+        //
+        //
+        //     return false;
+        // },
+    },
 }
 </script>
 

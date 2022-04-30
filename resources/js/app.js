@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./_global');
 
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/inertia-vue3";
@@ -29,7 +30,7 @@ createInertiaApp({
             .use(i18nVue, {
                 resolve: lang => import(`../../lang/${lang}.json`),
             })
-            .mixin({ methods : {route} })
+            .mixin({ methods : {route, validatePermission} })
             .mount(el);
-    },
+        },
 });
