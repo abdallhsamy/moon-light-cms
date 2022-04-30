@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\SocialiteProviders\GoogleController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::middleware('guest')->group(function () {
     });
 });
 
+
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
 
@@ -58,4 +60,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix(config('core.backend_prefix'))->group(function () {
         Route::resource('users', UserController::class);
     });
+});
+
+Route::prefix('auth/google')->as('auth.google.')->controller(GoogleController::class)->group(function () {
+    Route::get('/', 'redirectToGoogle')->name('redirect');
+    Route::get('/callback', 'handleGoogleCallback')->name('handle_callback');
+
 });

@@ -27,10 +27,10 @@
                             <span class="fas fa-user"></span>
                         </div>
                     </div>
-                    @error('name')
-                    <div class="alert alert-danger text-sm">{{ $message }}</div>
-                    @enderror
                 </div>
+                @error('name')
+                <div class="alert alert-danger text-sm">{{ $message }}</div>
+                @enderror
                 <div class="input-group mb-3">
                     <input value="{{ old('email') }}" name="email" type="email" class="form-control @error('email') is-invalid @enderror " placeholder="{{ trans('auth.email') }}">
                     <div class="input-group-append">
@@ -38,10 +38,10 @@
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
-                    @error('email')
-                    <div class="alert alert-danger text-sm">{{ $message }}</div>
-                    @enderror
                 </div>
+                @error('email')
+                <div class="alert alert-danger text-sm">{{ $message }}</div>
+                @enderror
                 <div class="input-group mb-3">
                     <input name="password" type="password" class="form-control @error('password') is-invalid @enderror " placeholder="{{ trans('auth.password_field') }}">
                     <div class="input-group-append">
@@ -49,10 +49,10 @@
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
-                    @error('password')
-                    <div class="alert alert-danger text-sm">{{ $message }}</div>
-                    @enderror
                 </div>
+                @error('password')
+                <div class="alert alert-danger text-sm">{{ $message }}</div>
+                @enderror
                 <div class="input-group mb-3">
                     <input name="password_confirmation" type="password" class="form-control" placeholder="{{ trans('auth.retype_password') }}">
                     <div class="input-group-append">
@@ -82,7 +82,7 @@
 {{--                <a href="#" class="btn btn-block btn-primary">--}}
 {{--                    {!! trans('auth.sign_up_using_facebook') !!}--}}
 {{--                </a>--}}
-                <a href="#" class="btn btn-block btn-danger">
+                <a href="{{ route('auth.google.redirect') }}" class="btn btn-block btn-danger">
                     {!! trans('auth.sign_up_using_google') !!}
                 </a>
             </div>

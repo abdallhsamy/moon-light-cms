@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return new Attribute(get: fn(?string $value) => $value  ?? "https://ui-avatars.com/api/?name=$this->name&background=random&size=128&rounded=true&format=svg");
     }
+
+    public function socialiteProviders()
+    {
+        return $this->hasMany(SocialiteProvider::class, 'user_id');
+    }
 }
