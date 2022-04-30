@@ -81,6 +81,8 @@
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
+document.body.className = 'hold-transition sidebar-mini';
+
 export default {
     name: "Index",
     components: {

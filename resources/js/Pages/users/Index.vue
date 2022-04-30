@@ -109,6 +109,8 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import Pagination from '@/Components/Pagination'
 import { pickBy, throttle } from 'lodash';
 
+document.body.className = 'hold-transition sidebar-mini';
+
 export default {
     name: "Index",
     components: {
