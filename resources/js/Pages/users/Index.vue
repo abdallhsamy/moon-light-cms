@@ -27,8 +27,9 @@
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h5 class="card-title">{{ $t('Users List') }}</h5>
-                                <p class="card-text">
-                                </p>
+<!--                                <p class="card-text" v-for="(val, key) in $page.props.auth.can">-->
+<!--                                    {{ key }} : {{ val}}-->
+<!--                                </p>-->
                             </div>
                             <div class="card-body">
                                 <div class="mb-4 col-md-4 ">

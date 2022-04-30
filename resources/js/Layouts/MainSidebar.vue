@@ -32,6 +32,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                     <li v-if="menu" v-for="item in menu" :key="item.title" class="nav-item" :class="{ 'menu-open' : $page.component.startsWith(item.folder) }">
+                        <template v-if="$page.props.auth.can[item.permission]">
                             <a :href="item.link ?? '#'" class="nav-link" :class="{ 'active' : $page.component.startsWith(item.folder) }">
                                 <i :class="item.icon"></i>
                                 <p>
@@ -39,14 +40,18 @@
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+
                             <ul v-if="item.sub_list" class="nav nav-treeview">
-                                <li v-for="sub_item in item.sub_list" :key="sub_item.title" class="nav-item">
-                                    <Link :href="route(sub_item.route) ?? ''" class="nav-link" :class="{'active' : $page.component === sub_item.component }">
-                                        <i v-if="sub_item.icon" :class="sub_item.icon"></i>
-                                        <p>{{  sub_item.title }}</p>
-                                    </Link>
-                                </li>
+                                <template v-for="sub_item in item.sub_list" :key="sub_item.title">
+                                    <li class="nav-item" v-if="$page.props.auth.can[sub_item.permission]">
+                                        <Link :href="route(sub_item.route) ?? ''" class="nav-link" :class="{'active' : $page.component === sub_item.component }">
+                                            <i v-if="sub_item.icon" :class="sub_item.icon"></i>
+                                            <p>{{  sub_item.title }}</p>
+                                        </Link>
+                                    </li>
+                                </template>
                             </ul>
+                        </template>
 
                     </li>
 

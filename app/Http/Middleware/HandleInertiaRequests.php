@@ -48,8 +48,8 @@ class HandleInertiaRequests extends Middleware
                     'name' =>  auth()->user()->name ?? null,
                     'avatar' =>  auth()->user()->avatar ?? null,
                 ],
-                'can' =>$request->user() ? $request->user()->permission_array : []
-
+                'can' => $request->user() ? $request->user()->permission_array : [],
+                'permissions' => $request->user() ? $request->user()->getAllPermissions()->pluck('name') : [],
             ]
         ]);
     }
