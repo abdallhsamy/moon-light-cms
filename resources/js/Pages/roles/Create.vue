@@ -48,9 +48,6 @@
                                             <h3 class="card-title">Permissions</h3>
                                         </div>
 
-                                        <input type="hidden" v-model="permissions">
-
-
 
                                         <div class="card-body overflow-hidden">
                                             <div class="row g-2 row justify-content-around">
@@ -58,7 +55,6 @@
                                                     <span class="text-bold text-center btn btn-success btn-block"
                                                           @click="()=>{selectPermissions(array)}">{{  group }}</span>
 
-                                                    <p class="d-none">{{permissions }}</p>
                                                     <template v-for="item in array" :key="item.id">
 
                                                         <div class="dropdown-divider"></div>
@@ -68,7 +64,7 @@
                                                                     <input
                                                                         @click="()=>{selectSinglePermission(item.id)}"
                                                                         :value="item.id"
-                                                                        v-model="permissions"
+                                                                        v-model="form.permissions"
                                                                         type="checkbox" data-toggle="toggle">
                                                                     <span class="ml-2 text-sm">{{  item.name }}</span>
                                                                 </label>
@@ -117,15 +113,10 @@ export default {
         groupedPermissions : Array,
         errors: Object,
     },
-    data() {
-        return {
-            permissions : [],
-        }
-    },
-    setup(props) {
+    setup() {
         const form = useForm({
             name: '',
-            permissions : getCurrentInstance().data.permissions
+            permissions : []
         })
         return {form}
     },
@@ -137,13 +128,13 @@ export default {
         },
         selectSinglePermission(id) {
             //in here you can check what ever condition  before append to array.
-            if(this.permissions.includes(id)){
-                let index = this.permissions.indexOf(id);
+            if(this.form.permissions.includes(id)){
+                let index = this.form.permissions.indexOf(id);
                 if (index > -1) {
-                    this.permissions.splice(index, 1); // 2nd parameter means remove one item only
+                    this.form.permissions.splice(index, 1); // 2nd parameter means remove one item only
                 }
             }else{
-                this.permissions.push(id)
+                this.form.permissions.push(id)
             }
         }
     }

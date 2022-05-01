@@ -42,7 +42,11 @@ class RoleController extends Controller
 
     public function store(StoreRoleRequest $request)
     {
-        Role::create($request->validated());
+        $role = Role::create($request->only('name'));
+
+        if ($request->has('permissions') && !empty($request->get('permissions'))) {
+            $role->syncPermissions($request->get('permissions'));
+        }
 
         return redirect()
             ->route('roles.index')
