@@ -1,5 +1,5 @@
 export let menu
-// todo : protect menu items with permissions
+
 export default menu = [
     {
         "title" : "User Management",
@@ -20,6 +20,28 @@ export default menu = [
                 "route" : "users.create",
                 "component" : "users/Create",
                 "permission" : "create_users"
+            },
+        ]
+    },
+    {
+        "title" : "Role Management",
+        "icon" : "fas fa-tachometer-alt",
+        "link" : "#",
+        "folder" : "roles",
+        "permission" : "list_roles",
+        "sub_list" : [
+            {
+                "title" : "Roles List",
+                "icon" : "fas fa-user nav-icon",
+                "route" : "roles.index",
+                "component" : "roles/Index",
+                "permission" : "list_roles"
+            },{
+                "title" : "Add Role",
+                "icon" : "fas fa-user nav-icon",
+                "route" : "roles.create",
+                "component" : "roles/Create",
+                "permission" : "create_roles"
             },
         ]
     }
