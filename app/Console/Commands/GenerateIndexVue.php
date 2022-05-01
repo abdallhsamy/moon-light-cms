@@ -18,8 +18,8 @@ class GenerateIndexVue extends Command
 
     public function handle()
     {
-
         $stub = 'stubs/index-vue.stub';
+
         $module = Str::of($this->argument('module'))
             ->plural()
             ->snake();
@@ -27,12 +27,11 @@ class GenerateIndexVue extends Command
         $destination = "resources/js/Pages/${module}";
 
         if (! is_dir(base_path($destination)) && !mkdir(base_path($destination))) {
-//            mkdir(base_path($destination));
-//            if (!mkdir($concurrentDirectory = base_path($destination))) {
-            $error = "Directory " . $destination . " was not created";
+            $error = "Directory " . $destination . " cannot be created";
+
             $this->error($error);
-//                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-//            }
+
+            return 0;
         }
 
         if (file_exists ( base_path("${destination}/$this->file_name.$this->ext"))) {
