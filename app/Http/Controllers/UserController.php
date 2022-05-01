@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\StoreUserRequest;
-use App\Http\Requests\User\UpdateUserRequest;
-use App\Http\Resources\User\UserResource;
+use App\Http\Requests\User\StoreRoleRequest;
+use App\Http\Requests\User\UpdateRoleRequest;
+use App\Http\Resources\User\RoleResource;
 use App\Models\User;
 use Inertia\Inertia;
 
@@ -36,7 +36,7 @@ class UserController extends Controller
         return Inertia::render('users/Create');
     }
 
-    public function store(StoreUserRequest $request)
+    public function store(StoreRoleRequest $request)
     {
         User::create($request->validated());
 
@@ -47,12 +47,12 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $user = new UserResource($user);
+        $user = new RoleResource($user);
 
         return Inertia::render('users/Edit', compact('user'));
     }
 
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateRoleRequest $request, User $user)
     {
         $user->update($request->validated());
 
